@@ -2,56 +2,59 @@
 
 ## Esercizio 1.1 
 
-Scrivere un programma che, letti due numeri interi da terminale, restituisca il loro rapporto.
+Scrivere un programma che assegni il valore di una variabile ad un'altra utilizzando un puntatore. 
+Stampare inoltre a terminale i valori e gli indirizzi di ogni variabile prima e dopo l'assegnazione.
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 1.2
+## Esercizio 1.2 
 
-Scrivere un programma che scrive a terminale la radice quadrata di 2, il cubo di 2 il seno di pigreco quarti.
+Dichiarare un puntatore e poi cercare di assegnargli direttamente un valore numerico. Cosa succede? Perché?
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 1.3
 
-Scrivere un programma che legga da linea di comando un numero intero a scelta tra 1 e 2
-e restituisca a terminale il valore inserito, 
-o un messaggio di errore in caso di inserimento di altri interi.
-
+Utilizzare new e delete per creare e distruggere una variabile double ed un array di double.
+    
 ![linea](../immagini/linea.png)
 
-## Esercizio 1.4 
+## Esercizio 1.4
 
-Scrivere un programma che richieda all’utente di inserire un numero intero 
-e che sappia riconoscere se il numero e' pari o dispari 
-(utilizzare l’operatore ```%```, 
-implementando due funzioni che stampino a schermo messaggi diversi nei due casi)
-  * Implementare nel main un ciclo infinito con l’istruzione ```do ... while (condizione)```,
-    che ripeta l'operazione fintanto che il numero inserito e' positivo.
-
+Realizzare una funzione che risolva un’equazione di secondo grado: ax2 + bx + c = 0. 
+La funzione deve rendere disponibile il risultato al programma che la chiama. 
+  * Il prototipo della funzione deve essere:
+    ```cpp
+    bool solve2ndDegree (double * par, double * x) ;
+    ```
+  * La funzione deve restituire una variabile ```bool (true/false)``` a
+    seconda che esistano o meno soluzioni reali dell’equazione
+  * La funzione riceve in input due puntatori a double:
+    * ```double * par``` serve per passare l’array dei coefficienti
+    * ```double * x```  è l’indirizzo di un array in cui salvare le soluzioni dell’equazione
+    
 ![linea](../immagini/linea.png)
 
-## Esercizio 1.5 
+## Esercizio 1.5
 
-Scrivere una funzione che calcoli il fattoriale di un numero intero non negativo
-
+Rifare l’esercizio su media/varianza della lezione di ripasso realizzando un’unica funzione che le calcoli entrambe,
+facendo opportuno uso puntatori o referenze.
+    
 ![linea](../immagini/linea.png)
 
 ## Esercizio 1.6
 
-Scrivere la funzione fattoriale in modo ricorsivo, 
-cioe' facendo in modo che la funzione che calcola il fattoriale chiami se stessa
-dove necessario, sfruttando il fatto che ```N! = N * (N-1)!```.
-
+Scrivere una funzione che, dato un array di N interi, 
+lo ordini dal più piccolo al più grande 
+(suggerimento: creare un array inserendo alcuni numeri a caso per testare che l'ordinamento funzioni). 
+  * Il prototipo della funzione deve essere:
+    ```cpp
+    void SortArray (double * myArray, int dim) ;
+    ```
 ![linea](../immagini/linea.png)
 
 ## Esercizio 1.7
 
-Scrivere un programma che chieda all’utente di inserire 10 numeri da tastiera 
-e li memorizzi in un array.
-Implementare le funzioni:
-```cpp
-  double Media (float array[], int N);
-  double Varianza (float array[], int N);
-```  
-e utilizzarle nel main per calcolare la media e la varianza dei numeri inseriti.
+Scrivere una funzione ```creaArray (...) ``` che prenda in input un numero intero,
+crei un array di tipo ```float``` lungo quando il numero intero di input
+e restituisca il puntatore al primo elemento dell'array.
