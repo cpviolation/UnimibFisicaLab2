@@ -1,57 +1,57 @@
-# Lezione 9: stima di parametri con il metodo della massima verosimiglianza
+# Lezione 10: stima di parametri con il metodo della massima verosimiglianza
 
 ## Indice
 
-  * [9.1 La determinazione dei parametri](#91-la-determinazione-dei-parametri)
-    * [9.1.1 La massima verosimiglianza](#911-la-massima-verosimiglianza)
-    * [9.1.2 Il massimo del logaritmo della verosimiglianza](#912-il-massimo-del-logaritmo-della-verosimiglianza)
-  * [9.2 La sigma della distribuzione dei parametri stimati](#92-la-sigma-della-distribuzione-dei-parametri-stimati)
-  * [9.3 Le proprietà degli stimatori di massima verosimiglianza](#93-le-proprietà-degli-stimatori-di-massima-verosimiglianza)
-  * [9.4 La costruzione di una *likelihood* e la determinazione di un parametro](#94-la-costruzione-di-una-likelihood-e-la-determinazione-di-un-parametro)
-    * [9.4.1 La determinazione del massimo del logaritmo della *likelihood*](#941-la-determinazione-del-massimo-del-logaritmo-della-likelihood)
-    * [9.4.2 Un esempio di applicazione](#942-un-esempio-di-applicazione)
-  * [9.5 La sigma associata allo stimatore di &tau;](#95-la-sigma-associata-allo-stimatore-di-tau)
-    * [9.5.1 L'equivalente grafico](#951-lequivalente-grafico)
-    * [9.5.2 L'implementazione della funzione *h(&tau;)*](#952-limplementazione-della-funzione-htau)
-    * [9.5.3 Il calcolo numerico dei punti di intersezione](#953-il-calcolo-numerico-dei-punti-di-intersezione)
-  * [9.6 L'utilizzo nel programma principale](#96-lutilizzo-nel-programma-principale)
-    * [9.6.1 Il confronto con una stima analitica](#961-il-confronto-con-una-stima-analitica)
-  * [9.7 La distribuzione di probabilità degli stimatori](#97-la-distribuzione-di-probabilità-degli-stimatori)
-    * [9.7.1 La generazione di un *toy experiment*](#971-la-generazione-di-un-toy-experiment)
-    * [9.7.2 Il calcolo del parametro con il metodo della massima verosimiglianza](#972-il-calcolo-del-parametro-con-il-metodo-della-massima-verosimiglianza)
-    * [9.7.3 Il risultato dello studio](#973-il-risultato-dello-studio)
-  * [9.8 ESERCIZI](#98-esercizi)
+  * [10.1 La determinazione dei parametri](#la-determinazione-dei-parametri)
+    * [10.1.1 La massima verosimiglianza](#la-massima-verosimiglianza)
+    * [10.1.2 Il massimo del logaritmo della verosimiglianza](#il-massimo-del-logaritmo-della-verosimiglianza)
+  * [10.2 La sigma della distribuzione dei parametri stimati](#la-sigma-della-distribuzione-dei-parametri-stimati)
+  * [10.3 Le proprietà degli stimatori di massima verosimiglianza](#le-proprieta-degli-stimatori-di-massima-verosimiglianza)
+  * [10.4 La costruzione di una *likelihood* e la determinazione di un parametro](#la-costruzione-di-una-likelihood-e-la-determinazione-di-un-parametro)
+    * [10.4.1 La determinazione del massimo del logaritmo della *likelihood*](#la-determinazione-del-massimo-del-logaritmo-della-likelihood)
+    * [10.4.2 Un esempio di applicazione](#un-esempio-di-applicazione)
+  * [10.5 La sigma associata allo stimatore di &tau;](#la-sigma-associata-allo-stimatore-di-tau)
+    * [10.5.1 L'equivalente grafico](#l-equivalente-grafico)
+    * [10.5.2 L'implementazione della funzione *h(&tau;)*](#l-implementazione-della-funzione-htau)
+    * [10.5.3 Il calcolo numerico dei punti di intersezione](#il-calcolo-numerico-dei-punti-di-intersezione)
+  * [10.6 L'utilizzo nel programma principale](#l-utilizzo-nel-programma-principale)
+    * [10.6.1 Il confronto con una stima analitica](#il-confronto-con-una-stima-analitica)
+  * [10.7 La distribuzione di probabilità degli stimatori](#la-distribuzione-di-probabilita-degli-stimatori)
+    * [10.7.1 La generazione di un *toy experiment*](#la-generazione-di-un-toy-experiment)
+    * [10.7.2 Il calcolo del parametro con il metodo della massima verosimiglianza](#il-calcolo-del-parametro-con-il-metodo-della-massima-verosimiglianza)
+    * [10.7.3 Il risultato dello studio](#il-risultato-dello-studio)
+  * [10.8 ESERCIZI](#esercizi)
 
 ![linea](../immagini/linea.png)
 
-## 9.1 La determinazione dei parametri
+## 10.1 La determinazione dei parametri
 
   * Spesso l'obiettivo di un esperimento è la **stima dei parametri** di un modello
-  * Per ottenere questo risultato, 
-    si **raccolgono molti dati** *x<sub>i</sub>* e si utilizzano come input
+  * Per ottenere questo risultato,
+    si **raccolgono molti dati** $x_i$ e si utilizzano come input
     ad algoritmi, detti **stimatori**, che stimino i parametri di interesse
-  * Le **stime** prodotte da uno stimatore **sono variabili casuali**, 
+  * Le **stime** prodotte da uno stimatore **sono variabili casuali**,
     perché tramite gli stimatori sono funzioni di numeri casuali (i dati)
     * Hanno una propria distribuzione di probabilità
 ![stime](immagini/stime.png)
-  * Esistono programmi che svolgono il compito per noi. 
+  * Esistono programmi che svolgono il compito per noi.
     Fra questi, ```ROOT``` contiene diversi algoritmi per farlo.
     In gergo, **l'operazione di determinazione dei parametri è chiamata *fit***,
     cioè adatattamento.
 
 ![linea](../immagini/linea.png)
 
-### 9.1.1 La massima verosimiglianza
+### 10.1.1 La massima verosimiglianza
 
   * La tecnica della massima verosimiglianza
     si basa sull'assunto che la stima dei parametri ricercati
-    corrisponda al **valore 
+    corrisponda al **valore
     che massimizza la *likelihood***,
     definita come
     il prodotto del valore della distribuzione di densità di probabilità
     calcolata per ogni misura effettuata:
 ![likelihood](immagini/likelihood.png)
-  * La *likelihood* è funzione sia delle misure che dei parametri, 
+  * La *likelihood* è funzione sia delle misure che dei parametri,
     tuttavia si **evidenzia la dipendenza dai parametri** perché
     a misure finite i dati sono immutabili.
   * La funzione che stima i parametri dunque si ricava dall'equazione:
@@ -59,9 +59,9 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.1.2 Il massimo del logaritmo della verosimiglianza
+### 10.1.2 Il massimo del logaritmo della verosimiglianza
 
-  * Solitamente si utilizza il **logaritmo della funzione di *likelihood***, 
+  * Solitamente si utilizza il **logaritmo della funzione di *likelihood***,
     indicato con in lettera corsiva minuscola:.
 ![loglikelihood](immagini/loglikelihood.png)
   * Infatti, siccome il logaritmo è una **funzione monotona crescente**,
@@ -69,39 +69,42 @@
   * Il logaritmo di un prodotto di termini
     è uguale alla somma dei logaritmi dei singoli termini,
     quindi l'operazione di derivata del logaritmo della funzione di *likelihood*
-    è **più semplice** rispetto alla 
+    è **più semplice** rispetto alla
     derivata della funzione di *likelihood*:
-![maxLoglikelihood](immagini/maxLoglikelihood.png)
+
+    $$\frac{\partial l(\theta)}{\partial\theta} = \frac{\partial\log(\mathcal{L}(\theta))}{\partial\theta} = \frac{\partial\log\left(\prod_{i=1}^N f(x_i,\theta)\right)}{\partial\theta} = \sum_{i=1}^N \frac{\partial\log\left(f(x_i,\theta)\right)}{\partial\theta}$$
+
+<!-- ![maxLoglikelihood](immagini/maxLoglikelihood.png) -->
   * Il logaritmo di un numero è più piccolo del numero stesso
     e varia su un intervallo minore rispetto alla variabilità del numero stesso,
     quindi **operazioni con i logaritmi sono più stabili numericamente**
 
 ![linea](../immagini/linea.png)
 
-## 9.2 La sigma della distribuzione dei parametri stimati
+## 10.2 La sigma della distribuzione dei parametri stimati
 
-  * Sappiamo che esiste un **metodo grafico** 
-    per la determinazione della sigma associata ai parametri stimati con 
+  * Sappiamo che esiste un **metodo grafico**
+    per la determinazione della sigma associata ai parametri stimati con
     il metodo della massima verosimiglianza
-  * consiste nel deteminare i punti di intersezione 
-    fra la funzione di log-*likelihood* 
+  * consiste nel deteminare i punti di intersezione
+    fra la funzione di log-*likelihood*
     e la retta orizziontale con coordinata pari al **massimo di log-*likelihood* - 0.5**
     e calcolarne la mezza distanza
 
 ![linea](../immagini/linea.png)
 
-## 9.3 Le proprietà degli stimatori di massima verosimiglianza
+## 10.3 Le proprietà degli stimatori di massima verosimiglianza
 
   * Sono **consistenti**
-  * Sono **asintoticamente non distorti**, 
+  * Sono **asintoticamente non distorti**,
     cioè hanno bias nullo per il numero di misure *N* che tende all'infinito
   * Sono **asintoticamente efficienti**,
-    cioè hanno la varianza minima possibile 
+    cioè hanno la varianza minima possibile
     per il numero di misure *N* che tende all'infinito
 
 ![linea](../immagini/linea.png)
 
-## 9.4 La costruzione di una *likelihood* e la determinazione di un parametro
+## 10.4 La costruzione di una *likelihood* e la determinazione di un parametro
 
   * Si utilizzerà l'esempio della distribuzione esponenziale
     per determinarne l'unico parametro &tau; tramite il metodo della massima verosimiglianza:
@@ -114,7 +117,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.4.1 La determinazione del massimo del logaritmo della *likelihood*
+### 10.4.1 La determinazione del massimo del logaritmo della *likelihood*
 
   * Si può utilizzare l'**algoritmo della sezione aurea** sviluppato durante la Lezione 6
     per trovare il massimo della log-likelihood:
@@ -128,27 +131,27 @@
     )
     ```
     * Il programma va scritto in modo che si **cerchi il massimo** di una funzione
-    * I **parametri in ingresso** sono 
+    * I **parametri in ingresso** sono
       la funzione di cui trovare l'estremante (```logl```),
       l'intervallo sul quale cercare il valore massimo **per il parametro &tau;**,
       il ```vector``` contenente i dati
-      e la precisone alla quale arrestare il calcolo,
+      e la precisione alla quale arrestare il calcolo,
       per la quale c'è un valore di default.
 
 ![linea](../immagini/linea.png)
 
-### 9.4.2 Un esempio di applicazione
+### 10.4.2 Un esempio di applicazione
 
   * Dopo aver generato numeri pseudo-casuali distribuiti secondo una densità di probabilità esponenziale,
     che si può visualizzare con un ```TH1F``` di ```ROOT```:
 ![istogramma_esponenziale](immagini/istogramma_esponenziale.png)
-  * Le funzioni sviluppate possono essere utilizzate 
+  * Le funzioni sviluppate possono essere utilizzate
     con i numeri salvati in un ```vector```,
     a partire da un **intervallo di ricerca del massimo scelto ragionevolmente**:
     ```cpp
     double massimo = sezione_aurea_max (loglikelihood, 0.5 * media_v, 1.5 * media_v, data) ;
     ```
-  * Il risultato di questo algoritmo può essere **confrontato con la media aritmetica** 
+  * Il risultato di questo algoritmo può essere **confrontato con la media aritmetica**
     dei numeri, che per questa particolare distribuzione di probabilità
     è uno stimatore di &tau;:
     ```
@@ -159,9 +162,9 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.5 La sigma associata allo stimatore di &tau;
+## 10.5 La sigma associata allo stimatore di &tau;
 
-  * Lo stimatore di &tau; è una variabile casuale, 
+  * Lo stimatore di &tau; è una variabile casuale,
     cioè ha una **proria distribuzione di probabilità**
   * Dunque oltre al avere associata una stima puntuale ricavata massimizzando
     il logaritmo della verosimiglianza
@@ -175,9 +178,9 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.5.1 L'equivalente grafico
+### 10.5.1 L'equivalente grafico
 
-  * **Disegnando la funzione *h(&tau;)*** si ottiene, 
+  * **Disegnando la funzione *h(&tau;)*** si ottiene,
     al variare del numero di eventi utilizzati per calcolare la funzione *log-likelihood*:
 ![loglikelihood_profile](immagini/loglikelihood_profile.png)
   * al crescere del numero di eventi utilizzati,
@@ -189,13 +192,13 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.5.2 L'implementazione della funzione *h(&tau;)* 
+### 10.5.2 L'implementazione della funzione *h(&tau;)*
 
   * Si può implementare la funzione *h(&tau;)*
     **a partire dalla funzione ```loglikelihood```**:
     ```cpp
     double h (
-      const vector<double> & data, 
+      const vector<double> & data,
       double param,
       double max
     )
@@ -206,7 +209,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.5.3 Il calcolo numerico dei punti di intersezione
+### 10.5.3 Il calcolo numerico dei punti di intersezione
 
   * Si può **utilizzare il metodo della bisezione** per trovare
     *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>*   
@@ -233,9 +236,9 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.6 L'utilizzo nel programma principale
+## 10.6 L'utilizzo nel programma principale
 
-  * Su un intervallo relativamente ristretto intorno al massimo 
+  * Su un intervallo relativamente ristretto intorno al massimo
     della funzione *log-likelihood* sappiamo che
     **la funzione *h(&tau;)* ha due zeri**,
     uno a destra ed uno a sinistra del suo massimo
@@ -254,14 +257,14 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.6.1 Il confronto con una stima analitica
+### 10.6.1 Il confronto con una stima analitica
 
   * Si sa che nel caso della distribuzione esponenziale
     la **varianza è pari al quadrato della media**
   * L'**incertezza sulla media** è pari alla incertezza sulla singola misura,
     cioè la radice della varianza,
     divisa per la radice del numero di eventi
-  * Dunque l'**incertezza sullo stimatore di &tau;**, 
+  * Dunque l'**incertezza sullo stimatore di &tau;**,
     indicato con il simbolo dell'accento circonflesso,
     si può in questo caso stimare come:
 ![sigma_calcolata](immagini/sigma_calcolata.png)
@@ -270,23 +273,23 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.7 La distribuzione di probabilità degli stimatori
+## 10.7 La distribuzione di probabilità degli stimatori
 
   * La distribuzione di probabilità degli stimatori può essere **ricostruita in modo frequentista**,
     simulando l'esperimento di raccolta degli eventi un gran numero di volte,
-    con la tecnica dei *toy experiment* descritta nella Lezione 6
+    con la tecnica dei *toy experiment* descritta nella Lezione 8
   * Per la generazione di un *toy experiment* bisogna ipotizzare
     il **valore vero del parametro** (```mu_true``` nel caso trattato finora)
     ed il **numero di eventi raccolto** (```numero_eventi```)
   * Per costruire la distribuzione dello stimatore di &tau;
     bisogna ripetere **due procedure** un gran numero di volte (```N_toy```):
     * **Generazione** di un toy experiment
-    * **Calcolo dello stimatore** data quella generazione, come se fossero gli eventi misurati 
+    * **Calcolo dello stimatore** data quella generazione, come se fossero gli eventi misurati
       (nell'esempio di questa lezione, i numeri salvati in ```dati_esponenziali.txt```)
 
 ![linea](../immagini/linea.png)
 
-### 9.7.1 La generazione di un *toy experiment*
+### 10.7.1 La generazione di un *toy experiment*
 
   * Per generare un *toy experiment* si ricorre solitamente a **numeri pseudo-casuali**,
     utilizzando algoritmi esistenti adattati al caso in esame
@@ -298,34 +301,33 @@
     ```
     * La funzione **prende in input il valore vero di &tau;** e restituisce un numero pseudo-casuale
       distribuito secondo la distribuzione di probabilità esponenziale corrispondente
-  * Con questo algoritmo, 
+  * Con questo algoritmo,
     si può riempire un ```vector``` con i numeri generati:
     ```cpp
     vector<double> data_loc ;
     for (int i_sample = 0 ; i_sample < numero_eventi ; ++i_sample)
       {
         data_loc.push_back (rand_IFC_Exp (mu_true)) ;
-      } 
+      }
     ```
 
 ![linea](../immagini/linea.png)
 
-### 9.7.2 Il calcolo del parametro con il metodo della massima verosimiglianza
+### 10.7.2 Il calcolo del parametro con il metodo della massima verosimiglianza
 
   * A partire dal ```vector``` ```data_loc``` si può applicare il metodo della massima verosimiglianza
     sviluppato precedentemente, ottenendo un risultato per ogni *toy experiment*
     ```cpp
     double media_v = media (data_loc) ;
-    double sigma_subsample = media_v / sqrt (data_loc.size ()) ;
     double massimo = sezione_aurea_max (loglikelihood, 0.5 * media_v, 1.5 * media_v, data_loc) ;
     ```
 
 ![linea](../immagini/linea.png)
 
-### 9.7.3 Il risultato dello studio
+### 10.7.3 Il risultato dello studio
 
   * Entrambi i passaggi sono **inseriti in un ciclo generale**,
-    dove si può riempire un istogramma (o altri strumenti statistici) 
+    dove si può riempire un istogramma (o altri strumenti statistici)
     ```cpp
     for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
       {
@@ -342,11 +344,6 @@
 
 ![linea](../immagini/linea.png)
 
-
-![linea](../immagini/linea.png)
-
-## 9.8 ESERCIZI
+## 10.8 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
-
-
