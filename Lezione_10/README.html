@@ -357,6 +357,11 @@
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="../Lezione_09/ESEMPI.html">
+       Esempi: Lezione 9
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../Lezione_09/ESERCIZI.html">
        Esercizi per la lezione 9
       </a>
@@ -765,14 +770,19 @@ quindi <strong>operazioni con i logaritmi sono più stabili numericamente</stron
 </div>
 <div class="section" id="la-sigma-della-distribuzione-dei-parametri-stimati">
 <h2>10.2 La sigma della distribuzione dei parametri stimati<a class="headerlink" href="#la-sigma-della-distribuzione-dei-parametri-stimati" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
+<ul>
 <li><p>Sappiamo che esiste un <strong>metodo grafico</strong>
 per la determinazione della sigma associata ai parametri stimati con
 il metodo della massima verosimiglianza</p></li>
-<li><p>consiste nel deteminare i punti di intersezione
+<li><p>consiste nel determinare i punti di intersezione
 fra la funzione di log-<em>likelihood</em>
-e la retta orizziontale con coordinata pari al <strong>massimo di log-<em>likelihood</em> - 0.5</strong>
-e calcolarne la mezza distanza</p></li>
+e la retta orizzontale con coordinata pari al <strong>massimo di log-<em>likelihood</em> - 0.5</strong>
+e calcolarne la mezza distanza</p>
+<div class="tip admonition">
+<p class="admonition-title">Perché <span class="math notranslate nohighlight">\(-1/2\)</span>?</p>
+<p>Per dimostrare che i punti corrispondenti a <span class="math notranslate nohighlight">\(x\pm\sigma\)</span> si possano ottenere alla condizione <span class="math notranslate nohighlight">\(l(\theta) = l(\theta)^{\text{max}} - 0.5\)</span> si sviluppa in serie di Taylor <span class="math notranslate nohighlight">\(l(\theta)\)</span> intorno allo stimatore del valore atteso <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> e si approssima il valore di aspettazione della derivata seconda di <span class="math notranslate nohighlight">\(l(\theta)\)</span> con il suo valore al massimo e lo si sostituisce con la varianza dello stimatore, applicando il teorema di Rao-Cramér (dimostrazione nel modulo di Statistica).</p>
+</div>
+</li>
 </ul>
 <p><img alt="linea" src="../_images/linea.png" /></p>
 </div>
