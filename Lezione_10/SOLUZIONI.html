@@ -41,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -413,6 +413,38 @@
        Esercizi per la lezione 11
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Lezione_11/SOLUZIONI.html">
+       Soluzioni: Lezione 11
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../Lezione_12/README.html">
+     Lezione 12: fit di distribuzioni binnate con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ROOT
+      </span>
+     </code>
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Lezione_12/ESEMPI.html">
+       Esempi: Lezione 12
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Lezione_12/ESERCIZI.html">
+       Esercizi per la lezione 12
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -421,8 +453,8 @@
   <a class="reference internal" href="../appendix.html">
    Appendice
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -434,8 +466,8 @@
       Standard Template Library
      </em>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-    <label for="toctree-checkbox-14">
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -461,8 +493,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-    <label for="toctree-checkbox-15">
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -493,8 +525,8 @@
       </span>
      </code>
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-    <label for="toctree-checkbox-16">
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -520,8 +552,8 @@
     <a class="reference internal" href="../Appendice_04/README.html">
      Appendice 4: i minimi quadrati ed il caso lineare: soluzione algebrica
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-    <label for="toctree-checkbox-17">
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -586,7 +618,7 @@
                 data-placement="left">.rst</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -604,7 +636,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -639,7 +671,45 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Soluzioni: Lezione 10</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determinazione-del-massimo-della-verosimiglianza">
+   10.1 - 10.3 determinazione del massimo della verosimiglianza
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#varianza-dello-stimatore-ottenuto">
+   10.4 varianza dello stimatore ottenuto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribuzione-di-probabilita-dello-stimatore-ottenuto">
+   10.5 distribuzione di probabilità dello stimatore ottenuto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limite-asintotico">
+   10.6 limite asintotico
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="section" id="soluzioni-lezione-10">
@@ -651,7 +721,7 @@
 <li><p><cite>esercizio_01.cpp</cite></p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm">c++ -o esercizio_01 funzioni.cc esercizio_01.cpp</span>
+<span class="cm">c++ -o esercizio_01 funzioni.cc casual.cc esercizio_01.cpp</span>
 
 <span class="cm">Testo:</span>
 <span class="cm">  Si scriva una libreria di funzioni per determinare il parametro τ della distribuzione </span>
@@ -670,6 +740,7 @@
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;statistiche_vector.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;funzioni.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;casual.h&quot;</span><span class="cp"></span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
@@ -678,28 +749,23 @@
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;uso: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; nomeFile [numero_di_eventi]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;uso: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; numero_di_eventi [t_zero]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="n">exit</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">ifstream</span><span class="w"> </span><span class="n">input_file</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="n">input_file</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numeroMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">numeroMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">t_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">input_val</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">atoi</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">input_file</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">input_val</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input_file</span><span class="p">.</span><span class="n">eof</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="n">push_back</span><span class="w"> </span><span class="p">(</span><span class="n">input_val</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numeroMax</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numeroMax</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span>
-<span class="w">    </span><span class="n">input_file</span><span class="p">.</span><span class="n">close</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="n">push_back</span><span class="w"> </span><span class="p">(</span><span class="n">rand_exp</span><span class="w"> </span><span class="p">(</span><span class="n">t_zero</span><span class="p">))</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;letti &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; eventi&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;generati &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; eventi&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">media_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">media</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;media = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">media_v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
@@ -755,10 +821,6 @@
 <span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">precision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0001</span><span class="w"></span>
 <span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
-<span class="kt">double</span><span class="w"> </span><span class="nf">rand_range</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-
-<span class="kt">double</span><span class="w"> </span><span class="nf">rand_IFC_Exp</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">mu</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-
 <span class="cp">#endif</span>
 </pre></div>
 </div>
@@ -801,7 +863,7 @@
 <span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">esponenziale</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">at</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">param</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">   </span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">   </span>
 <span class="p">}</span><span class="w"></span>
 
 
@@ -825,6 +887,8 @@
 
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">logl</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">x_3</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">logl</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">x_2</span><span class="p">))</span><span class="w"> </span><span class="n">xMin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_3</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w">                                     </span><span class="n">xMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_2</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="c1">//      cout &lt;&lt; &quot;estremi &quot; &lt;&lt; xMin &lt;&lt; &quot;\t&quot; &lt;&lt; xMax &lt;&lt; &quot;\t&quot; &lt;&lt; xMax - xMin &lt;&lt; &quot;\n&quot; ;</span>
+
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">xMax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">xMin</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -864,27 +928,6 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">xAve</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-
-
-<span class="c1">// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-<span class="w">  </span>
-
-<span class="kt">double</span><span class="w"> </span><span class="nf">rand_range</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">min</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">min</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">RAND_MAX</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-
-<span class="c1">// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- </span>
-<span class="w">  </span>
-
-<span class="c1">// generazione numeri casuali con il metodo dell&#39;inversa della funzione cumulativa</span>
-<span class="kt">double</span><span class="w"> </span><span class="nf">rand_IFC_Exp</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">mu</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand_range</span><span class="w"> </span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="w"> </span><span class="mf">1.</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">mu</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/linea.png"><img alt="../_images/linea.png" src="../_images/linea.png" style="width: 1100px;" /></a>
@@ -895,7 +938,7 @@
 <li><p><cite>esercizio_04.cpp</cite></p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm">c++ -o esercizio_04 funzioni.cc esercizio_04.cpp</span>
+<span class="cm">c++ -o esercizio_04 funzioni.cc casual.cc esercizio_04.cpp</span>
 
 <span class="cm">Testo:</span>
 
@@ -913,6 +956,7 @@
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;statistiche_vector.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;funzioni.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;casual.h&quot;</span><span class="cp"></span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
@@ -921,28 +965,23 @@
 
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;uso: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; nomeFile [numero_di_eventi]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;uso: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; numero_di_eventi [t_zero]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="n">exit</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">ifstream</span><span class="w"> </span><span class="n">input_file</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="n">input_file</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">numeroMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">numeroMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">t_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">t_zero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">input_val</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">atoi</span><span class="w"> </span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">input_file</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">input_val</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input_file</span><span class="p">.</span><span class="n">eof</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="n">push_back</span><span class="w"> </span><span class="p">(</span><span class="n">input_val</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numeroMax</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">numeroMax</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span>
-<span class="w">    </span><span class="n">input_file</span><span class="p">.</span><span class="n">close</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">data</span><span class="p">.</span><span class="n">push_back</span><span class="w"> </span><span class="p">(</span><span class="n">rand_exp</span><span class="w"> </span><span class="p">(</span><span class="n">t_zero</span><span class="p">))</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;letti &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; eventi&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;generati &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; eventi&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">media_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">media</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;media = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">media_v</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="w"> </span><span class="p">;</span><span class="w"> </span>
@@ -972,7 +1011,7 @@
 <li><p><cite>esercizio_05.cpp</cite></p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm">c++ -o esercizio_05 `root-config --glibs --cflags` funzioni.cc esercizio_05.cpp</span>
+<span class="cm">c++ -o esercizio_05 `root-config --glibs --cflags` funzioni.cc casual.cc esercizio_05.cpp</span>
 
 <span class="cm">Testo:</span>
 <span class="cm">  Utilizzando il generatore di numeri pseudo-casuali secondo una pdf esponenziale sviluppato nella </span>
@@ -991,6 +1030,7 @@
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;statistiche_vector.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;funzioni.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;casual.h&quot;</span><span class="cp"></span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
@@ -1055,7 +1095,7 @@
 <li><p><cite>esercizio_06.cpp</cite></p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm">c++ -o esercizio_06 `root-config --glibs --cflags` funzioni.cc esercizio_06.cpp</span>
+<span class="cm">c++ -o esercizio_06 `root-config --glibs --cflags` funzioni.cc casual.cc esercizio_06.cpp</span>
 
 <span class="cm">Testo:</span>
 <span class="cm">    In regime asintotico, la distribuzione degli scarti (τ - τvero) / στ ha forma Normale.</span>
@@ -1078,6 +1118,7 @@
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;statistiche_vector.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;funzioni.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;casual.h&quot;</span><span class="cp"></span>
 
 <span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 
@@ -1197,8 +1238,8 @@
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="ESERCIZI.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1215,19 +1256,17 @@
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Docenti del Corso di Laboratorio 2<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By Docenti del Corso di Laboratorio 2<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
